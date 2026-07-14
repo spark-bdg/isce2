@@ -163,7 +163,7 @@ if __name__ == '__main__':
         match = None
 
         try:
-            r = session.get(url, verify=True, params={"$filter": query})
+            r = session.get(url, verify=True, params={"$filter": query,"$top":"1000"})
             r.raise_for_status()
 
             entries = json.loads(r.text, object_hook=lambda x: SimpleNamespace(**x)).value
